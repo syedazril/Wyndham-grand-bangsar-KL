@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spa & Wellness</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#0c0c0c;
+  color:#eee;
+}
+
+/* NAVIGATION */
+
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  z-index:1000;
+  backdrop-filter: blur(8px);
+}
+
+.logo h2{
+  color:white;
+  font-size:1.3rem;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  align-items:center;
+}
+
+nav ul li{
+  margin-left:25px;
+}
+
+/* NAV LINKS */
+
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+  position:relative;
+  padding-bottom:5px;
+}
+
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:gold;
+  left:0;
+  bottom:0;
+  transition:0.3s;
+}
+
+nav ul li a:hover::after{
+  width:100%;
+}
+
+nav ul li a:hover{
+  color:gold;
+}
+
+/* LUXURY BUTTON */
+
+.nav-btn{
+  background:linear-gradient(135deg, #d4af37, #f5d76e);
+  color:black !important;
+  padding:12px 24px;
+  border-radius:40px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  box-shadow:0 4px 15px rgba(212,175,55,0.4);
+  transition:all 0.3s ease;
+}
+
+.nav-btn::after{
+  display:none;
+}
+
+.nav-btn:hover{
+  background:white;
+  color:black !important;
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(255,255,255,0.3);
+}
+
+/* HERO */
+
+.hero{
+  height:65vh;
+  background:url('image/Relaxing%20Spa%20&%20Wellness.jpg') center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+
+.hero h1{
+  position:relative;
+  z-index:1;
+  color:gold;
+  font-size:3rem;
+  font-family:'Playfair Display', serif;
+  letter-spacing:2px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 40px;
+}
+
+.info{
+  background:#111;
+  padding:40px;
+  border-radius:15px;
+  border:1px solid rgba(255,215,0,0.1);
+}
+
+h2{
+  color:gold;
+  margin-bottom:20px;
+  font-family:'Playfair Display', serif;
+}
+
+p{
+  color:#ccc;
+  line-height:1.8;
+  margin-bottom:20px;
+}
+
+ul{
+  margin-top:20px;
+}
+
+ul li{
+  margin-bottom:12px;
+  color:#ddd;
+}
+
+/* BUTTON */
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 30px;
+  background:linear-gradient(135deg, #d4af37, #f5d76e);
+  color:black;
+  text-decoration:none;
+  border-radius:40px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 15px rgba(212,175,55,0.4);
+}
+
+.btn:hover{
+  background:white;
+  color:black;
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(255,255,255,0.3);
+}
+
+/* FOOTER */
+
+footer{
+  background:black;
+  text-align:center;
+  padding:25px;
+  color:#aaa;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  nav{
+    flex-direction:column;
+    gap:15px;
+    padding:15px 20px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:2.2rem;
+    text-align:center;
+  }
+
+  .container{
+    padding:60px 20px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+  <div class="logo">
+    <h2>Wyndham Grand</h2>
+  </div>
+
+  <ul>
+      <!-- LUXURY BUTTON -->
+    <li><a href="javascript:history.back()" class="nav-btn">Go Back</a></li>
+  </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+  <h1>Spa & Wellness</h1>
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+  <div class="info">
+
+    <h2>Relax & Rejuvenate</h2>
+
+    <p>
+      Experience complete relaxation with our luxury spa treatments,
+      soothing massage therapies, and wellness facilities.
+    </p>
+
+    <p>
+      Escape from the stress of everyday life and immerse yourself in complete
+      relaxation at our Spa & Wellness Center. Our experienced therapists provide
+      a range of premium treatments designed to refresh your body and calm your mind.
+    </p>
+
+    <p>
+      Guests may choose from aromatherapy massages, deep tissue treatments,
+      facial therapies, body scrubs, and wellness packages tailored for ultimate
+      comfort and rejuvenation in a peaceful luxury environment.
+    </p>
+
+    <ul>
+      <li>✔ Aromatherapy Massage</li>
+      <li>✔ Deep Tissue Therapy</li>
+      <li>✔ Facial & Skin Treatments</li>
+      <li>✔ Sauna & Steam Room</li>
+      <li>✔ Private Spa Suites</li>
+      <li>✔ Relaxing Music & Ambience</li>
+      <li>✔ Professional Wellness Therapists</li>
+      <li>✔ Open Daily: 10AM - 10PM</li>
+    </ul>
+
+    <a href="LI Project.html#booking" class="btn">Book Your Stay</a>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2026 Wyndham Grand Bangsar Kuala Lumpur</p>
+</footer>
+
+</body>
+</html>

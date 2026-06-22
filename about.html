@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Wyndham Grand</title>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- AOS ANIMATION -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0c0c0c;
+      color: #eee;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0,0,0,0.85);
+      padding: 15px 40px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(8px);
+    }
+
+    /* NAV LINKS */
+    .nav-links a {
+      color: #eee;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: gold;
+      left: 0;
+      bottom: 0;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: gold;
+    }
+
+    /* LUXURY BUTTON */
+    .luxury-btn {
+      background: linear-gradient(135deg, #d4af37, #f5d76e);
+      color: black !important;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+    }
+
+    .luxury-btn:hover {
+      background: white;
+      color: black !important;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+    }
+
+    /* HERO */
+    .hero {
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #000, rgba(0,0,0,0.4));
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: gold;
+      z-index: 1;
+      letter-spacing: 2px;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: gold;
+      margin: 40px 0 15px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    /* UPDATED CARD */
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a1a1a;
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(255,215,0,0.2);
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 15px;
+      color: #ddd;
+    }
+
+    /* MAP */
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* CONTACT */
+    .contact {
+      margin-top: 30px;
+      color: #bbb;
+    }
+
+    /* FOOTER */
+    footer {
+      background: black;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      margin-top: 50px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .nav-links {
+        text-align: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+
+  <!-- LUXURY BUTTON -->
+  <a href="LI Project.html" class="luxury-btn">Return Home</a>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 data-aos="fade-down">Wyndham Grand Bangsar</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <h2 data-aos="fade-up">About the Hotel</h2>
+
+  <p data-aos="fade-up" data-aos-delay="200">
+    Wyndham Grand Bangsar Kuala Lumpur is a luxurious 5-star hotel offering
+    513 elegantly designed rooms and suites.
+    Strategically located between Kuala Lumpur’s business district and the
+    vibrant Bangsar area, the hotel provides both convenience and sophistication
+    for business and leisure travelers.
+  </p>
+
+  <h2 data-aos="fade-up">Why Choose Us</h2>
+
+  <div class="grid">
+
+    <a href="pool1.html" class="card" data-aos="zoom-in">
+      <img src="image/Infinity%20Swimming%20Pool%20with%20city%20view.webp">
+      <p>Infinity Swimming Pool with city view</p>
+    </a>
+
+    <a href="gym1.html" class="card" data-aos="zoom-in" data-aos-delay="100">
+      <img src="image/Modern%20Fitness%20Center.avif">
+      <p>Modern Fitness Center</p>
+    </a>
+
+    <a href="spa1.html" class="card" data-aos="zoom-in" data-aos-delay="200">
+      <img src="image/Relaxing%20Spa%20&%20Wellness.jpg">
+      <p>Relaxing Spa & Wellness</p>
+    </a>
+
+  </div>
+
+  <h2 data-aos="fade-up">Hotel Gallery</h2>
+
+  <div class="grid">
+
+    <a href="rooms1.html" class="card" data-aos="fade-up">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+      <p>Luxury Rooms</p>
+    </a>
+
+    <a href="lobby1.html" class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb">
+      <p>Elegant Lobby</p>
+    </a>
+
+    <a href="dining1.html" class="card" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa">
+      <p>Fine Dining Experience</p>
+    </a>
+
+  </div>
+
+  <h2 data-aos="fade-up">Our Location</h2>
+
+  <iframe 
+    src="https://maps.google.com/maps?q=wyndham%20grand%20bangsar%20kuala%20lumpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    data-aos="fade-up">
+  </iframe>
+
+  <div class="contact" data-aos="fade-up">
+    <p><strong>Email:</strong> Ray@wyndhamgrandkl.com</p>
+    <p><strong>Phone:</strong> +0102651682</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Wyndham Grand Bangsar Kuala Lumpur</p>
+</footer>
+
+<!-- AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+
+</script>
+
+</body>
+</html>

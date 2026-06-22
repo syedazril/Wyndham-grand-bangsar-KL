@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms - Wyndham Grand</title>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- AOS ANIMATION -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background:#0c0c0c;
+      color:#eee;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      z-index:1000;
+      backdrop-filter: blur(8px);
+    }
+
+    .logo img{
+      height:45px;
+    }
+
+    .logo h2{
+      color:white;
+      font-size:1.3rem;
+    }
+
+    .logo-link{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+    }
+
+    .logo h2{
+      margin:0;
+      color:white;
+      font-size:1.3rem;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      align-items:center;
+    }
+
+    nav ul li{
+      margin-left:25px;
+    }
+
+    /* NAV LINKS */
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      position:relative;
+      padding-bottom:5px;
+    }
+
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      width:0%;
+      height:2px;
+      background:gold;
+      left:0;
+      bottom:0;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    nav ul li a:hover{
+      color:gold;
+    }
+
+    /* LUXURY HOTEL BUTTON */
+
+    .nav-btn{
+      background:linear-gradient(135deg, #d4af37, #f5d76e);
+      color:black !important;
+      padding:12px 24px;
+      border-radius:40px;
+      font-weight:600;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      box-shadow:0 4px 15px rgba(212,175,55,0.4);
+      transition:all 0.3s ease;
+    }
+
+    .nav-btn::after{
+      display:none;
+    }
+
+    .nav-btn:hover{
+      background:white;
+      color:black !important;
+      transform:translateY(-3px);
+      box-shadow:0 8px 25px rgba(255,255,255,0.3);
+    }
+
+    /* HERO */
+
+    .hero{
+      height:50vh;
+      background:url('image/background 2.avif') center/cover no-repeat;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .hero h1{
+      position:relative;
+      z-index:1;
+      font-size:3rem;
+      color:gold;
+      font-family:'Playfair Display', serif;
+      letter-spacing:2px;
+    }
+
+    /* CONTAINER */
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:80px 40px;
+    }
+
+    h2{
+      text-align:center;
+      color:gold;
+      font-size:2.2rem;
+      margin-bottom:40px;
+      font-family:'Playfair Display', serif;
+    }
+
+    /* GRID */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    /* CARD */
+
+    .card{
+      background:#1a1a1a;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(255,215,0,0.1);
+      position:relative;
+    }
+
+    .card:hover{
+      transform:translateY(-10px) scale(1.02);
+      box-shadow:0 10px 30px rgba(255,215,0,0.2);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h3{
+      color:white;
+      margin-bottom:10px;
+    }
+
+    .card-content p{
+      color:#ccc;
+      margin-bottom:10px;
+      line-height:1.6;
+    }
+
+    /* PRICE */
+
+    .price{
+      color:gold;
+      font-weight:bold;
+      font-size:1.1rem;
+    }
+
+    /* BADGE */
+
+    .badge{
+      position:absolute;
+      top:15px;
+      left:15px;
+      background:gold;
+      color:black;
+      padding:6px 12px;
+      border-radius:20px;
+      font-size:0.8rem;
+      font-weight:bold;
+    }
+
+    /* BUTTON */
+
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 26px;
+      background:linear-gradient(135deg, #d4af37, #f5d76e);
+      color:black;
+      text-decoration:none;
+      border-radius:40px;
+      font-weight:600;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      transition:all 0.3s ease;
+      box-shadow:0 4px 15px rgba(212,175,55,0.4);
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+      transform:translateY(-3px);
+      box-shadow:0 8px 25px rgba(255,255,255,0.3);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:black;
+      color:#aaa;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      nav{
+        padding:15px 20px;
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:2.2rem;
+      }
+
+      .container{
+        padding:60px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">
+
+    <a href="LI Project.html" class="logo-link">
+
+      <img src="image/logo 1.png">
+
+      <h2>Wyndham Grand</h2>
+
+    </a>
+
+  </div>
+
+  <ul>
+    <li><a href="LI Project.html" class="nav-btn">Return Home</a></li>
+  </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+  <h1 data-aos="fade-down">Our Rooms</h1>
+</div>
+
+<!-- CONTENT -->
+
+<div class="container" id="rooms">
+
+  <h2 data-aos="fade-up">Luxury Accommodations</h2>
+
+  <div class="grid">
+
+    <!-- ROOM 1 -->
+
+    <div class="card" data-aos="zoom-in">
+
+      <div class="badge">-24% OFF 🌸</div>
+
+      <img src="image/room deluxe1.webp">
+
+      <div class="card-content">
+
+        <h3>Deluxe King</h3>
+
+        <p>
+          Elegant king-sized room with modern comfort and city skyline views.
+        </p>
+
+        <p class="price">RM 249 / night</p>
+
+        <a href="deluxe1.html" class="btn">View Room</a>
+
+      </div>
+
+    </div>
+
+    <!-- ROOM 2 -->
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+
+      <div class="badge">-24% OFF 🌸</div>
+
+      <img src="image/room deluxe.jpg">
+
+      <div class="card-content">
+
+        <h3>Deluxe Twin</h3>
+
+        <p>
+          Spacious twin bedroom perfect for families and group travelers.
+        </p>
+
+        <p class="price">RM 249 / night</p>
+
+        <a href="deluxetwin1.html" class="btn">View Room</a>
+
+      </div>
+
+    </div>
+
+    <!-- ROOM 3 -->
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="200">
+
+      <div class="badge">-13% OFF 🌸</div>
+
+      <img src="image/room deluxe2.jpeg">
+
+      <div class="card-content">
+
+        <h3>Grand Deluxe</h3>
+
+        <p>
+          Premium deluxe room with upgraded luxury amenities and larger space.
+        </p>
+
+        <p class="price">RM 349 / night</p>
+
+        <a href="grand-deluxe1.html" class="btn">View Room</a>
+
+      </div>
+
+    </div>
+
+    <!-- ROOM 4 -->
+
+    <div class="card" data-aos="zoom-in">
+
+      <div class="badge">-14% OFF 🌸</div>
+
+      <img src="image/exe room.webp">
+
+      <div class="card-content">
+
+        <h3>Executive Classic King</h3>
+
+        <p>
+          Sophisticated executive room designed for business and luxury stays.
+        </p>
+
+        <p class="price">RM 800 / night</p>
+
+        <a href="Executive Classic King.html" class="btn">View Room</a>
+
+      </div>
+
+    </div>
+
+    <!-- ROOM 5 -->
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+
+      <div class="badge">-14% OFF 🌸</div>
+
+      <img src="image/exe room twin.webp">
+
+      <div class="card-content">
+
+        <h3>Executive Classic Twin</h3>
+
+        <p>
+          Executive twin room with modern workspace and premium facilities.
+        </p>
+
+        <p class="price">RM 800 / night</p>
+
+        <a href="EXECUTIVE CLASSIC TWIN.html" class="btn">View Room</a>
+
+      </div>
+
+    </div>
+
+    <!-- ROOM 6 -->
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="200">
+
+      <div class="badge">-20% OFF 🌸</div>
+
+      <img src="image/PRESIDENTIAL SUITE.webp">
+
+      <div class="card-content">
+
+        <h3>Presidential Suite</h3>
+
+        <p>
+          The ultimate luxury suite experience with exclusive premium services.
+        </p>
+
+        <p class="price">RM 950 / night</p>
+
+        <a href="PRESIDENTIAL SUITE.html" class="btn">View Room</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2026 Wyndham Grand Bangsar Kuala Lumpur</p>
+</footer>
+
+<!-- AOS SCRIPT -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+
+</script>
+
+</body>
+</html>

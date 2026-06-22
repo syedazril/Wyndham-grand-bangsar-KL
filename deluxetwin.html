@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deluxe Room</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<!-- AOS ANIMATION -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0c0c0c;
+  color: #eee;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+nav h2 a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: gold;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* SLIDES */
+.slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* OVERLAY */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000, rgba(0,0,0,0.4));
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  font-size: 3rem;
+  z-index: 1;
+  letter-spacing: 2px;
+  animation: fadeDown 1s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #111;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: 0.4s;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(255,215,0,0.08);
+}
+
+/* DETAILS */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.details img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.4s;
+}
+
+.details img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255,215,0,0.2);
+}
+
+/* TEXT */
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* FEATURES */
+.features {
+  margin-top: 20px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  color: #ddd;
+  transition: 0.3s;
+}
+
+.features li:hover {
+  color: gold;
+  transform: translateX(6px);
+}
+
+/* INFO BOX */
+.info-box {
+  margin-top: 20px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,215,0,0.2);
+  transition: 0.4s;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255,215,0,0.15);
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: gold;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.discount {
+  color: gold;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #d4af37, #f5d76e);
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BUTTON HOVER EFFECT */
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <h2 data-aos="fade-right">
+    <a href="index.html">Wyndham Grand</a>
+  </h2>
+
+  <div data-aos="fade-left">
+    <a href="LI Project.html">Home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="slides">
+    <img src="image/room deluxe.jpg" class="slide active">
+    <img src="image/room deluxe1.webp" class="slide">
+    <img src="image/room deluxe2.jpeg" class="slide">
+  </div>
+
+  <h1 data-aos="zoom-in">Deluxe King Room</h1>
+
+</section>
+
+<!-- CONTENT -->
+<div class="container" data-aos="fade-up">
+
+  <div class="details">
+
+    <div data-aos="fade-right">
+      <img src="image/room deluxe1.webp">
+    </div>
+
+    <div data-aos="fade-left">
+
+      <h2>Modern Comfort & Style</h2>
+
+      <p>
+        Experience a perfect blend of comfort and elegance in our Deluxe Room.
+        Designed for both relaxation and productivity, it features contemporary
+        interiors with stunning Kuala Lumpur city views.
+      </p>
+
+      <ul class="features">
+        <li>✔ King or Twin Bed</li>
+        <li>✔ Free High-Speed WiFi</li>
+        <li>✔ Smart TV</li>
+        <li>✔ Mini Bar</li>
+        <li>✔ Rain Shower Bathroom</li>
+        <li>✔ Work Desk</li>
+      </ul>
+
+      <div class="info-box">
+        <p><strong>Room Size:</strong> 38 sqm</p>
+
+        <p>
+          <span class="old-price">RM 350</span>
+          <span class="new-price">RM 249</span> / night
+        </p>
+
+        <p class="discount">🌸 Mother's Day Special - Limited Time Offer</p>
+      </div>
+
+      <a href="index.html#booking" class="btn">Book Now</a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer data-aos="fade-up">
+  <p>© 2026 Wyndham Grand Bangsar Kuala Lumpur</p>
+  <p>Contact: 0102651682</p>
+</footer>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 1000,
+  once: true
+});
+</script>
+
+<!-- SLIDER -->
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function changeSlide() {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}
+
+setInterval(changeSlide, 3000);
+</script>
+
+</body>
+</html>

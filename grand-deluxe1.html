@@ -1,0 +1,398 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deluxe Room</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0c0c0c;
+  color: #eee;
+}
+
+/* NAVIGATION */
+
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  z-index:1000;
+  backdrop-filter: blur(8px);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo h2 a{
+  color:white;
+  text-decoration:none;
+  font-size:1.3rem;
+}
+
+/* NAV LINKS */
+
+nav ul{
+  list-style:none;
+  display:flex;
+  align-items:center;
+}
+
+nav ul li{
+  margin-left:25px;
+}
+
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+  position:relative;
+  padding-bottom:5px;
+}
+
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:gold;
+  left:0;
+  bottom:0;
+  transition:0.3s;
+}
+
+nav ul li a:hover::after{
+  width:100%;
+}
+
+nav ul li a:hover{
+  color:gold;
+}
+
+/* LUXURY BUTTON */
+
+.nav-btn{
+  background:linear-gradient(135deg, #d4af37, #f5d76e);
+  color:black !important;
+  padding:12px 24px;
+  border-radius:40px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  box-shadow:0 4px 15px rgba(212,175,55,0.4);
+  transition:all 0.3s ease;
+}
+
+.nav-btn::after{
+  display:none;
+}
+
+.nav-btn:hover{
+  background:white;
+  color:black !important;
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(255,255,255,0.3);
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* SLIDES */
+.slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* OVERLAY */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000, rgba(0,0,0,0.4));
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  font-size: 3rem;
+  z-index: 1;
+  letter-spacing: 2px;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #111;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* DETAILS */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.details img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* TEXT */
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* FEATURES */
+.features {
+  margin-top: 20px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+/* PRICE BOX */
+.info-box {
+  margin-top: 20px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,215,0,0.2);
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: gold;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.discount {
+  color: gold;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 30px;
+  background:linear-gradient(135deg, #d4af37, #f5d76e);
+  color:black;
+  text-decoration:none;
+  border-radius:40px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 15px rgba(212,175,55,0.4);
+}
+
+.btn:hover{
+  background:white;
+  color:black;
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(255,255,255,0.3);
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+
+  nav{
+    flex-direction:column;
+    gap:15px;
+    padding:15px 20px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    text-align:center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+  <div class="logo">
+    <h2><a href="rooms.html">Wyndham Grand</a></h2>
+  </div>
+
+  <ul>
+    <li><a href="javascript:history.back()" class="nav-btn">Go Back</a></li>
+  </ul>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="slides">
+    <img src="image/room deluxe.jpg" class="slide active">
+    <img src="image/room deluxe1.webp" class="slide">
+    <img src="image/room deluxe2.jpeg" class="slide">
+  </div>
+
+  <h1>Grand Deluxe King Rooms</h1>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="details">
+    
+    <!-- IMAGE -->
+    <div>
+      <img src="image/room deluxe1.webp">
+    </div>
+
+    <!-- TEXT -->
+    <div>
+      <h2>Spacious with premium amenities</h2>
+
+      <p>
+        Experience a perfect blend of comfort and elegance in our Deluxe Room.
+        Designed for both relaxation and productivity, it features contemporary
+        interiors with stunning Kuala Lumpur city views.
+      </p>
+
+      <ul class="features">
+        <li>✔ King or Twin Bed</li>
+        <li>✔ Free High-Speed WiFi</li>
+        <li>✔ Smart TV</li>
+        <li>✔ Mini Bar</li>
+        <li>✔ Rain Shower Bathroom</li>
+        <li>✔ Work Desk</li>
+      </ul>
+
+      <div class="info-box">
+
+        <p><strong>Room Size:</strong> 41 sqm</p>
+
+        <p>
+          <span class="old-price">RM 500</span>
+          <span class="new-price">RM 349</span> / night
+        </p>
+
+        <p class="discount">
+          🌸 Mother's Day Special - Limited Time Offer
+        </p>
+
+      </div>
+
+      <a href="index.html#booking" class="btn">Book Now</a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Wyndham Grand Bangsar Kuala Lumpur</p>
+  <p>Contact: 0102651682</p>
+</footer>
+
+<!-- SLIDER SCRIPT -->
+<script>
+
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function changeSlide() {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}
+
+setInterval(changeSlide, 3000);
+
+</script>
+
+</body>
+</html>
+```
